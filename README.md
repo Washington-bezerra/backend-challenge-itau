@@ -10,11 +10,11 @@
 - [x] Enviar link do repositório para Tainara Ramim
 
 ### Dia 23/12 - Desenvolvimento Core
-- [ ] Criação do endpoint REST
-- [ ] Implementação das regras de negócio
-- [ ] Criação do Use Case
-- [ ] Documentar decisões técnicas tomadas
-- [ ] Implementar controller adviser
+- [X] Criação do endpoint REST
+- [X] Implementação das regras de negócio
+- [X] Criação do Use Case
+- [X] Documentar decisões técnicas tomadas
+- [X] Implementar controller advice
 
 ### Dia 24/12 - Revisão Arquitetural
 - [ ] Validar isolamento do domínio
@@ -60,6 +60,14 @@
 2. `POST`: é para processar/validar dados; mais seguro, permitindo o envio num JWT assinado; Facilita eventuais extensões;
 </details>
 
+<details>
+  <summary>Por que Chain of responsibility?</summary>
+
+- Chain of responsibility é um Design Pattern popular e conhecido por gerenciar chamadas em cadeia, ainda que as business rule
+não sejam chamadas em cadeia - com uma rule chamando outra - é possível se inspirar no patterns para adaptá-lo à nossa realidade.
+
+</details>
+
 ### Estrutura do Projeto
 
 ```
@@ -89,5 +97,6 @@ src/
 Check List/Débitos (apagar)
 - [ ] Revisar no README a parte de `Estrutura do Projeto`
 - [ ] Parametrizar a quantidade minima de maiusculo, minusculo, char especial e digito, assim fica dinamico.
+- [ ] Ajusta excpetion retorna por notNull notBlank
 ---
 *Projeto em desenvolvimento - Atualizações diárias conforme cronograma*
