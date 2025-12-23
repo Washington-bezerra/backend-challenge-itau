@@ -86,7 +86,8 @@ src/
 - **Infrastructure**: Controllers, configurações e adapters
 
 ---
-Check List (apagar)
+Check List/Débitos (apagar)
 - [ ] Revisar no README a parte de `Estrutura do Projeto`
+- [ ] Parametrizar a quantidade minima de maiusculo, minusculo, char especial e digito, assim fica dinamico.
 ---
 *Projeto em desenvolvimento - Atualizações diárias conforme cronograma*
