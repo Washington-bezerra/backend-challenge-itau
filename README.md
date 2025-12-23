@@ -14,6 +14,7 @@
 - [ ] Implementação das regras de negócio
 - [ ] Criação do Use Case
 - [ ] Documentar decisões técnicas tomadas
+- [ ] Implementar controller adviser
 
 ### Dia 24/12 - Revisão Arquitetural
 - [ ] Validar isolamento do domínio
