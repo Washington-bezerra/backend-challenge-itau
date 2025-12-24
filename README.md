@@ -17,8 +17,7 @@
 - [X] Implementar controller advice
 
 ### Dia 24/12 - Revisão Arquitetural
-- [ ] Validar isolamento do domínio
-- [ ] Verificar: Abstração, acoplamento, extensibilidade e coesão
+- [X] Verificar: Abstração, acoplamento, extensibilidade e coesão
 - [ ] Validar princípios SOLID
 - [ ] Refatorações necessárias
 
@@ -33,6 +32,7 @@
 - [ ] Configuração do JaCoCo para cobertura
 
 ### Dia 27/12 - Revisão
+- [ ] Validar isolamento do domínio
 - [ ] Documentar como executar o código
 - [ ] Disponibilizar exemplos de cURL
 - [ ] Checklist final do projeto

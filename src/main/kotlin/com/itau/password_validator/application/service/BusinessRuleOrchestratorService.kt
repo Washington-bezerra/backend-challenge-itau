@@ -1,34 +1,36 @@
 package com.itau.password_validator.application.service
 
 import com.itau.password_validator.application.interfaces.IBusinessRuleOrchestratorService
-import com.itau.password_validator.domain.rules.BlankSpaceRule
-import com.itau.password_validator.domain.rules.DigitRule
-import com.itau.password_validator.domain.rules.LowerCaseRule
-import com.itau.password_validator.domain.rules.MinLengthRule
-import com.itau.password_validator.domain.rules.NoRepeatedCharsRule
-import com.itau.password_validator.domain.rules.SpecialCharsRule
-import com.itau.password_validator.domain.rules.UpperCaseRule
+import com.itau.password_validator.domain.rules.*
 import org.springframework.stereotype.Service
 
 @Service
-class BusinessRuleOrchestratorService : IBusinessRuleOrchestratorService {
+class BusinessRuleOrchestratorService(
+    minLengthRule: MinLengthRule,
+    upperCaseRule: UpperCaseRule,
+    lowerCaseRule: LowerCaseRule,
+    digitRule: DigitRule,
+    specialCharsRule: SpecialCharsRule,
+    blankSpaceRule: BlankSpaceRule,
+    noRepeatedCharsRule: NoRepeatedCharsRule
+) : IBusinessRuleOrchestratorService {
+
+    private val businessRules = listOf(
+        minLengthRule,
+        upperCaseRule,
+        lowerCaseRule,
+        digitRule,
+        specialCharsRule,
+        blankSpaceRule,
+        noRepeatedCharsRule
+    )
 
     override fun applyAllBusinessRule(password: String): List<String> {
         val violations = mutableListOf<String>()
 
-        val businessRules = listOf(
-            BlankSpaceRule(),
-            DigitRule(),
-            LowerCaseRule(),
-            MinLengthRule(),
-            NoRepeatedCharsRule(),
-            SpecialCharsRule(),
-            UpperCaseRule(),
-        )
-
         businessRules.forEach {
             val result = it.validate(password)
-            if (!result.isValid){
+            if (!result.isValid) {
                 violations.add(result.errorMessage!!)
             }
         }

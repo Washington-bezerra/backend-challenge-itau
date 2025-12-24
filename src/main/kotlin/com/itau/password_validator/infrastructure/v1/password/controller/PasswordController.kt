@@ -19,7 +19,10 @@ class PasswordController (
         val result = validatePasswordUseCase(request.password!!)
 
         return ResponseEntity.ok().body(
-            ValidatePasswordResponse(isValid = result.isValid, violations = result.violations)
+            ValidatePasswordResponse(
+                isValid = result.isValid,
+                violations = result.violations
+            )
         )
     }
 }

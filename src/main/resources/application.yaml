@@ -1,3 +1,12 @@
 spring:
   application:
     name: password-validator
+
+password:
+  validation:
+    min-length: 8
+    min-uppercase: 1
+    min-lowercase: 1
+    min-digits: 1
+    min-special-chars: 1
+    special-chars: "!@#$%^&*()-+"

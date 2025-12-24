@@ -1,12 +1,21 @@
 package com.itau.password_validator.domain.rules
 
 import com.itau.password_validator.domain.entities.PasswordValidate
+import org.springframework.context.MessageSource
+import java.util.Locale
 
-class BlankSpaceRule : PasswordRule {
+class BlankSpaceRule(val messageSource: MessageSource) : PasswordRule {
     override fun validate(password: String): PasswordValidate{
         password.forEach {
-            if (it == ' ') {
-                return PasswordValidate(isValid = false, errorMessage = "A senha não deve conter espaço em branco")
+            if (it.isWhitespace()) {
+                return PasswordValidate(
+                    isValid = false,
+                    errorMessage = messageSource.getMessage(
+                        "password.validation.no-spaces",
+                        arrayOf(),
+                        Locale.getDefault()
+                    )
+                )
             }
         }
 

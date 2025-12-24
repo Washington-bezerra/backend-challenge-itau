@@ -11,6 +11,6 @@ class ValidatePasswordUseCase (
         val violations = businessRuleOrchestratorService.applyAllBusinessRule(password)
         val passwordIsValid = violations.isEmpty()
 
-        return PasswordValidateDTO(password = password, isValid = passwordIsValid, violations = violations)
+        return PasswordValidateDTO(isValid = passwordIsValid, violations = violations)
     }
 }

@@ -1,17 +1,28 @@
 package com.itau.password_validator.domain.rules
 
 import com.itau.password_validator.domain.entities.PasswordValidate
+import org.springframework.context.MessageSource
+import java.util.Locale
 
-class SpecialCharsRule : PasswordRule {
+class SpecialCharsRule(val specialChars: String, val minSpecialChars: Int, val messageSource: MessageSource) : PasswordRule {
 
-    companion object{
-        const val SPECIAL_CHARS = "!@#$%^&*()-+"
-    }
     override fun validate(password: String): PasswordValidate {
+        var countSpecialChars = 0
+
         password.forEach {
-            if (SPECIAL_CHARS.contains(it)) return PasswordValidate(isValid = true)
+            if (specialChars.contains(it)){
+                countSpecialChars += 1
+                if (countSpecialChars >= minSpecialChars) { return PasswordValidate(isValid = true) }
+            }
         }
 
-        return PasswordValidate(isValid = false, errorMessage = "A senha deve conter ao menos um dos seguintes caracteres especiais: !@#$%^&*()-+")
+        return PasswordValidate(
+            isValid = false,
+            errorMessage = messageSource.getMessage(
+                "password.validation.special-char",
+                arrayOf(minSpecialChars.toString(), specialChars),
+                Locale.getDefault()
+            )
+        )
     }
 }

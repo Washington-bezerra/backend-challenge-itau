@@ -1,18 +1,23 @@
 package com.itau.password_validator.domain.rules
 
 import com.itau.password_validator.domain.entities.PasswordValidate
+import org.springframework.context.MessageSource
+import java.util.*
 
-class MinLengthRule : PasswordRule {
+class MinLengthRule(private val minLength: Int, private val messageSource: MessageSource) : PasswordRule {
 
-    companion object {
-        const val MIN_LENGTH = 9
-    }
-
-    override fun validate(password: String): PasswordValidate{
-        return if (password.length >= MIN_LENGTH){
+    override fun validate(password: String): PasswordValidate {
+        return if (password.length >= minLength) {
             PasswordValidate(isValid = true)
-        }else{
-            PasswordValidate(isValid = false, errorMessage = "A senha deve conter no mínimo 9 caracteres.")
+        } else {
+            PasswordValidate(
+                isValid = false, 
+                errorMessage = messageSource.getMessage(
+                    "password.validation.min-length",
+                    arrayOf(minLength),
+                    Locale.getDefault()
+                )
+            )
         }
     }
 }
