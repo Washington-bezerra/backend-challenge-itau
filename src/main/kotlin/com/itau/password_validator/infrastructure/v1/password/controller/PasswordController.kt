@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import jakarta.validation.Valid
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 
 @RestController
@@ -15,7 +16,8 @@ class PasswordController (
     val validatePasswordUseCase: ValidatePasswordUseCase
 ): IPasswordController {
 
-    override fun validate(@Valid @RequestBody request: ValidatePasswordRequest): ResponseEntity<*> {
+    @PostMapping("/validate")
+    override fun validate(@Valid @RequestBody request: ValidatePasswordRequest): ResponseEntity<ValidatePasswordResponse> {
 
         val result = validatePasswordUseCase(request.password!!)
 
