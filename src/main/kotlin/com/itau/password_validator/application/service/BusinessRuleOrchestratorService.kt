@@ -11,7 +11,7 @@ class BusinessRuleOrchestratorService(
     lowerCaseRule: LowerCaseRule,
     digitRule: DigitRule,
     specialCharsRule: SpecialCharsRule,
-    blankSpaceRule: BlankSpaceRule,
+    whiteSpaceRule: WhiteSpaceRule,
     noRepeatedCharsRule: NoRepeatedCharsRule
 ) : IBusinessRuleOrchestratorService {
 
@@ -21,7 +21,7 @@ class BusinessRuleOrchestratorService(
         lowerCaseRule,
         digitRule,
         specialCharsRule,
-        blankSpaceRule,
+        whiteSpaceRule,
         noRepeatedCharsRule
     )
 

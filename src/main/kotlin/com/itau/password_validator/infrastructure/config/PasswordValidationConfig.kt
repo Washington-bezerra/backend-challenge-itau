@@ -2,8 +2,6 @@ package com.itau.password_validator.infrastructure.config
 
 import com.itau.password_validator.domain.interfaces.MessageProvider
 import com.itau.password_validator.domain.rules.*
-import jakarta.validation.constraints.Min
-import jakarta.validation.constraints.NotBlank
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
@@ -40,7 +38,7 @@ class PasswordValidationConfig {
         SpecialCharsRule(properties.specialChars, properties.minSpecialChars, messageProvider)
 
     @Bean
-    fun blankSpaceRule(messageProvider: MessageProvider) = BlankSpaceRule(messageProvider)
+    fun blankSpaceRule(messageProvider: MessageProvider) = WhiteSpaceRule(messageProvider)
 
     @Bean
     fun noRepeatedCharsRule(messageProvider: MessageProvider) = NoRepeatedCharsRule(messageProvider)
