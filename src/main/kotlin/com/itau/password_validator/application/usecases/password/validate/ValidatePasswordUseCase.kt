@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class ValidatePasswordUseCase (
-    val businessRuleOrchestratorService : IBusinessRuleOrchestratorService
+    private val businessRuleOrchestratorService : IBusinessRuleOrchestratorService
 ){
     operator fun invoke(password : String) : PasswordValidateDTO {
         val violations = businessRuleOrchestratorService.applyAllBusinessRule(password)
