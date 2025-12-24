@@ -1,10 +1,9 @@
 package com.itau.password_validator.domain.rules
 
 import com.itau.password_validator.domain.entities.PasswordValidate
-import org.springframework.context.MessageSource
-import java.util.Locale
+import com.itau.password_validator.domain.interfaces.MessageProvider
 
-class SpecialCharsRule(val specialChars: String, val minSpecialChars: Int, val messageSource: MessageSource) : PasswordRule {
+class SpecialCharsRule(val specialChars: String, val minSpecialChars: Int, val messageProvider: MessageProvider) : PasswordRule {
 
     override fun validate(password: String): PasswordValidate {
         var countSpecialChars = 0
@@ -18,10 +17,9 @@ class SpecialCharsRule(val specialChars: String, val minSpecialChars: Int, val m
 
         return PasswordValidate(
             isValid = false,
-            errorMessage = messageSource.getMessage(
+            errorMessage = messageProvider.getMessage(
                 "password.validation.special-char",
-                arrayOf(minSpecialChars.toString(), specialChars),
-                Locale.getDefault()
+                minSpecialChars, specialChars
             )
         )
     }

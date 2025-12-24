@@ -1,10 +1,9 @@
 package com.itau.password_validator.domain.rules
 
 import com.itau.password_validator.domain.entities.PasswordValidate
-import org.springframework.context.MessageSource
-import java.util.*
+import com.itau.password_validator.domain.interfaces.MessageProvider
 
-class LowerCaseRule(val minLowercase: Int, val messageSource: MessageSource) : PasswordRule {
+class LowerCaseRule(val minLowercase: Int, val messageProvider: MessageProvider) : PasswordRule {
     override fun validate(password: String): PasswordValidate{
         var countLowerCase = 0
 
@@ -17,10 +16,9 @@ class LowerCaseRule(val minLowercase: Int, val messageSource: MessageSource) : P
 
         return PasswordValidate(
             isValid = false,
-            errorMessage = messageSource.getMessage(
+            errorMessage = messageProvider.getMessage(
                 "password.validation.lowercase",
-                arrayOf(minLowercase),
-                Locale.getDefault()
+                minLowercase
             )
         )
     }

@@ -1,10 +1,10 @@
 package com.itau.password_validator.domain.rules
 
 import com.itau.password_validator.domain.entities.PasswordValidate
-import org.springframework.context.MessageSource
+import com.itau.password_validator.domain.interfaces.MessageProvider
 import java.util.*
 
-class MinLengthRule(private val minLength: Int, private val messageSource: MessageSource) : PasswordRule {
+class MinLengthRule(private val minLength: Int, private val messageProvider: MessageProvider) : PasswordRule {
 
     override fun validate(password: String): PasswordValidate {
         return if (password.length >= minLength) {
@@ -12,10 +12,9 @@ class MinLengthRule(private val minLength: Int, private val messageSource: Messa
         } else {
             PasswordValidate(
                 isValid = false, 
-                errorMessage = messageSource.getMessage(
+                errorMessage = messageProvider.getMessage(
                     "password.validation.min-length",
-                    arrayOf(minLength),
-                    Locale.getDefault()
+                    minLength
                 )
             )
         }

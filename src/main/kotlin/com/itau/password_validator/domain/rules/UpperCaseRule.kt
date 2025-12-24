@@ -1,10 +1,9 @@
 package com.itau.password_validator.domain.rules
 
 import com.itau.password_validator.domain.entities.PasswordValidate
-import org.springframework.context.MessageSource
-import java.util.*
+import com.itau.password_validator.domain.interfaces.MessageProvider
 
-class UpperCaseRule(val minUppercase: Int, val messageSource: MessageSource) : PasswordRule {
+class UpperCaseRule(val minUppercase: Int, val messageProvider: MessageProvider) : PasswordRule {
     override fun validate(password: String): PasswordValidate{
         var contUpperCase = 0
 
@@ -17,10 +16,9 @@ class UpperCaseRule(val minUppercase: Int, val messageSource: MessageSource) : P
 
         return PasswordValidate(
             isValid = false,
-            errorMessage = messageSource.getMessage(
+            errorMessage = messageProvider.getMessage(
                 "password.validation.uppercase",
-                arrayOf(minUppercase),
-                Locale.getDefault()
+                minUppercase
             )
         )
     }

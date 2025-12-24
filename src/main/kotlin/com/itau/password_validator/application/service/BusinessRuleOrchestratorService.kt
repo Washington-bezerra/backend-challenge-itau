@@ -31,7 +31,7 @@ class BusinessRuleOrchestratorService(
         businessRules.forEach {
             val result = it.validate(password)
             if (!result.isValid) {
-                violations.add(result.errorMessage!!)
+                violations.add(result.errorMessage?:"Unknown validation error")
             }
         }
 

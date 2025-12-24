@@ -98,5 +98,6 @@ Check List/Débitos (apagar)
 - [ ] Revisar no README a parte de `Estrutura do Projeto`
 - [ ] Parametrizar a quantidade minima de maiusculo, minusculo, char especial e digito, assim fica dinamico.
 - [ ] Ajusta excpetion retorna por notNull notBlank
+- [ ] Explicar o uso do gradle
 ---
 *Projeto em desenvolvimento - Atualizações diárias conforme cronograma*

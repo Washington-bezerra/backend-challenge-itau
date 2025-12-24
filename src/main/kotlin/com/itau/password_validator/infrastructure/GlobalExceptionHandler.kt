@@ -20,12 +20,32 @@ class GlobalExceptionHandler {
         )
     }
 
-    @ExceptionHandler(RuntimeException::class)
-    fun handleRuntimeException(e: RuntimeException): ResponseEntity<ValidatePasswordErrorResponse> {
+    @ExceptionHandler(IllegalArgumentException::class)
+    fun handleIllegalArgumentException(e: IllegalArgumentException): ResponseEntity<ValidatePasswordErrorResponse> {
+        return ResponseEntity.badRequest().body(
+            ValidatePasswordErrorResponse(
+                code = 400,
+                message = e.message ?: "Invalid argument"
+            )
+        )
+    }
+
+    @ExceptionHandler(IllegalStateException::class)
+    fun handleIllegalStateException(e: IllegalStateException): ResponseEntity<ValidatePasswordErrorResponse> {
         return ResponseEntity.internalServerError().body(
             ValidatePasswordErrorResponse(
                 code = 500,
-                message = e.message?: "Unexpected error"
+                message = e.message ?: "Invalid state"
+            )
+        )
+    }
+
+    @ExceptionHandler(Exception::class)
+    fun handleGenericException(e: Exception): ResponseEntity<ValidatePasswordErrorResponse> {
+        return ResponseEntity.internalServerError().body(
+            ValidatePasswordErrorResponse(
+                code = 500,
+                message = "Internal server error"
             )
         )
     }

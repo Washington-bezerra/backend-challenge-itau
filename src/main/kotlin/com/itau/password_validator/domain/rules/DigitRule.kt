@@ -1,10 +1,9 @@
 package com.itau.password_validator.domain.rules
 
 import com.itau.password_validator.domain.entities.PasswordValidate
-import org.springframework.context.MessageSource
-import java.util.Locale
+import com.itau.password_validator.domain.interfaces.MessageProvider
 
-class DigitRule(val minDigits: Int, val messageSource: MessageSource) : PasswordRule {
+class DigitRule(val minDigits: Int, val messageProvider: MessageProvider) : PasswordRule {
     override fun validate(password: String): PasswordValidate {
         var countDigits = 0
 
@@ -17,10 +16,9 @@ class DigitRule(val minDigits: Int, val messageSource: MessageSource) : Password
 
         return PasswordValidate(
             isValid = false,
-            errorMessage = messageSource.getMessage(
+            errorMessage = messageProvider.getMessage(
                 "password.validation.digit",
-                arrayOf(minDigits),
-                Locale.getDefault()
+                minDigits
             )
         )
     }

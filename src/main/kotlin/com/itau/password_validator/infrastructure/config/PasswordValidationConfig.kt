@@ -1,6 +1,9 @@
 package com.itau.password_validator.infrastructure.config
 
+import com.itau.password_validator.domain.interfaces.MessageProvider
 import com.itau.password_validator.domain.rules.*
+import jakarta.validation.constraints.Min
+import jakarta.validation.constraints.NotBlank
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
@@ -20,27 +23,27 @@ class PasswordValidationConfig {
     }
 
     @Bean
-    fun minLengthRule(properties: PasswordValidationProperties, messageSource: MessageSource) = 
-        MinLengthRule(properties.minLength, messageSource)
+    fun minLengthRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) = 
+        MinLengthRule(properties.minLength, messageProvider)
 
     @Bean
-    fun upperCaseRule(properties: PasswordValidationProperties, messageSource: MessageSource) = UpperCaseRule(properties.minUppercase, messageSource)
+    fun upperCaseRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) = UpperCaseRule(properties.minUppercase, messageProvider)
 
     @Bean
-    fun lowerCaseRule(properties: PasswordValidationProperties, messageSource: MessageSource) = LowerCaseRule(properties.minLowercase, messageSource)
+    fun lowerCaseRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) = LowerCaseRule(properties.minLowercase, messageProvider)
 
     @Bean
-    fun digitRule(properties: PasswordValidationProperties, messageSource: MessageSource) = DigitRule(properties.minDigits, messageSource)
+    fun digitRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) = DigitRule(properties.minDigits, messageProvider)
 
     @Bean
-    fun specialCharsRule(properties: PasswordValidationProperties, messageSource: MessageSource) = 
-        SpecialCharsRule(properties.specialChars, properties.minSpecialChars, messageSource)
+    fun specialCharsRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) = 
+        SpecialCharsRule(properties.specialChars, properties.minSpecialChars, messageProvider)
 
     @Bean
-    fun blankSpaceRule(messageSource: MessageSource) = BlankSpaceRule(messageSource)
+    fun blankSpaceRule(messageProvider: MessageProvider) = BlankSpaceRule(messageProvider)
 
     @Bean
-    fun noRepeatedCharsRule(messageSource: MessageSource) = NoRepeatedCharsRule(messageSource)
+    fun noRepeatedCharsRule(messageProvider: MessageProvider) = NoRepeatedCharsRule(messageProvider)
 }
 
 @ConfigurationProperties(prefix = "password.validation")
