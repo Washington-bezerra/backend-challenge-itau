@@ -18,8 +18,8 @@
 
 ### Dia 24/12 - Revisão Arquitetural
 - [X] Verificar: Abstração, acoplamento, extensibilidade e coesão
-- [ ] Validar princípios SOLID
-- [ ] Refatorações necessárias
+- [X] Validar princípios SOLID
+- [X] Refatorações necessárias
 
 ### Dia 25/12 - Aspectos Não-Funcionais
 - [ ] Avaliar necessidade de cache e documentar
@@ -68,6 +68,15 @@ não sejam chamadas em cadeia - com uma rule chamando outra - é possível se in
 
 </details>
 
+<details>
+  <summary>Por que usar gradle?</summary>
+
+- Mais performático, pois usa paralelismo e cache
+- Comumente usado com o Kotlin
+- Suporte nativo ao Kotlin
+
+</details>
+
 ### Estrutura do Projeto
 
 ```
@@ -96,8 +105,8 @@ src/
 ---
 Check List/Débitos (apagar)
 - [ ] Revisar no README a parte de `Estrutura do Projeto`
-- [ ] Parametrizar a quantidade minima de maiusculo, minusculo, char especial e digito, assim fica dinamico.
-- [ ] Ajusta excpetion retorna por notNull notBlank
-- [ ] Explicar o uso do gradle
+- [X] Parametrizar a quantidade minima de maiusculo, minusculo, char especial e digito, assim fica dinamico.
+- [X] Ajusta exception retornada por notNull notBlank
+- [X] Explicar o uso do gradle
 ---
 *Projeto em desenvolvimento - Atualizações diárias conforme cronograma*
