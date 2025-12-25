@@ -3,7 +3,7 @@ package com.itau.password_validator.domain.rules
 import com.itau.password_validator.domain.entities.PasswordValidate
 import com.itau.password_validator.domain.interfaces.MessageProvider
 
-class UpperCaseRule(val minUppercase: Int, val messageProvider: MessageProvider) : PasswordRule {
+class MinUpperCaseRule(val minUppercase: Int, val messageProvider: MessageProvider) : PasswordRule {
     override fun validate(password: String): PasswordValidate{
         var contUpperCase = 0
 

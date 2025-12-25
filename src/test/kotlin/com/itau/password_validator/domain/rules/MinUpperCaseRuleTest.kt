@@ -8,7 +8,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class UpperCaseRuleTest {
+class MinUpperCaseRuleTest {
 
     private val messageProvider = mockk<MessageProvider>()
 
@@ -16,7 +16,7 @@ class UpperCaseRuleTest {
     fun `should return violation when password has insufficient uppercase letters`(){
         every { messageProvider.getMessage("password.validation.uppercase", 1) } returns "Password must contain at least 1 uppercase letter"
         
-        val rule = UpperCaseRule(1, messageProvider)
+        val rule = MinUpperCaseRule(1, messageProvider)
         val result = rule.validate("password")
         
         assertFalse(result.isValid)
@@ -25,7 +25,7 @@ class UpperCaseRuleTest {
     
     @Test
     fun `should return no violation when password has sufficient uppercase letters`(){
-        val rule = UpperCaseRule(1, messageProvider)
+        val rule = MinUpperCaseRule(1, messageProvider)
         val result = rule.validate("Password")
         
         assertTrue(result.isValid)

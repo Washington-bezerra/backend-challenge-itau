@@ -4,11 +4,11 @@ import com.itau.password_validator.application.service.BusinessRuleOrchestratorS
 import com.itau.password_validator.application.usecases.password.validate.ValidatePasswordUseCase
 import com.itau.password_validator.domain.interfaces.MessageProvider
 import com.itau.password_validator.domain.rules.MinDigitRule
-import com.itau.password_validator.domain.rules.LowerCaseRule
+import com.itau.password_validator.domain.rules.MinLowerCaseRule
 import com.itau.password_validator.domain.rules.MinLengthRule
 import com.itau.password_validator.domain.rules.NoRepeatedCharsRule
 import com.itau.password_validator.domain.rules.SpecialCharsRule
-import com.itau.password_validator.domain.rules.UpperCaseRule
+import com.itau.password_validator.domain.rules.MinUpperCaseRule
 import com.itau.password_validator.domain.rules.WhiteSpaceRule
 import io.mockk.every
 import io.mockk.mockk
@@ -22,8 +22,8 @@ class ValidatePasswordUseCaseTest {
     private val messageProvider = mockk<MessageProvider>()
 
     private val minLengthRule = MinLengthRule(9, messageProvider)
-    private val upperCaseRule = UpperCaseRule(1, messageProvider)
-    private val lowerCaseRule = LowerCaseRule(1, messageProvider)
+    private val minUpperCaseRule = MinUpperCaseRule(1, messageProvider)
+    private val minLowerCaseRule = MinLowerCaseRule(1, messageProvider)
     private val minDigitRule = MinDigitRule(1, messageProvider)
     private val specialCharsRule = SpecialCharsRule("!@#$%^&*()-+", 1, messageProvider)
     private val whiteSpaceRule = WhiteSpaceRule(messageProvider)
@@ -31,8 +31,8 @@ class ValidatePasswordUseCaseTest {
 
     private val businessRuleOrchestratorService = BusinessRuleOrchestratorService(
         minLengthRule,
-        upperCaseRule,
-        lowerCaseRule,
+        minUpperCaseRule,
+        minLowerCaseRule,
         minDigitRule,
         specialCharsRule,
         whiteSpaceRule,

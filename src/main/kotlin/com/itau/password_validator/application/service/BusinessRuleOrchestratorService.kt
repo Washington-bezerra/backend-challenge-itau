@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service
 @Service
 class BusinessRuleOrchestratorService(
     minLengthRule: MinLengthRule,
-    upperCaseRule: UpperCaseRule,
-    lowerCaseRule: LowerCaseRule,
+    minUpperCaseRule: MinUpperCaseRule,
+    minLowerCaseRule: MinLowerCaseRule,
     minDigitRule: MinDigitRule,
     specialCharsRule: SpecialCharsRule,
     whiteSpaceRule: WhiteSpaceRule,
@@ -17,8 +17,8 @@ class BusinessRuleOrchestratorService(
 
     private val businessRules = listOf(
         minLengthRule,
-        upperCaseRule,
-        lowerCaseRule,
+        minUpperCaseRule,
+        minLowerCaseRule,
         minDigitRule,
         specialCharsRule,
         whiteSpaceRule,

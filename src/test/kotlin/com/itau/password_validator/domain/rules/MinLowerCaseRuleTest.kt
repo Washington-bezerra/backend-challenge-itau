@@ -8,7 +8,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class LowerCaseRuleTest {
+class MinLowerCaseRuleTest {
 
     private val messageProvider = mockk<MessageProvider>()
 
@@ -16,7 +16,7 @@ class LowerCaseRuleTest {
     fun `should return violation when password has insufficient lowercase letters`(){
         every { messageProvider.getMessage("password.validation.lowercase", 1) } returns "Password must contain at least 1 lowercase letter"
         
-        val rule = LowerCaseRule(1, messageProvider)
+        val rule = MinLowerCaseRule(1, messageProvider)
         val result = rule.validate("PASSWORD")
         
         assertFalse(result.isValid)
@@ -25,7 +25,7 @@ class LowerCaseRuleTest {
     
     @Test
     fun `should return no violation when password has sufficient lowercase letters`(){
-        val rule = LowerCaseRule(1, messageProvider)
+        val rule = MinLowerCaseRule(1, messageProvider)
         val result = rule.validate("Password")
         
         assertTrue(result.isValid)

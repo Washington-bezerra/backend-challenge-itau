@@ -25,13 +25,16 @@ class PasswordValidationConfig {
         MinLengthRule(properties.minLength, messageProvider)
 
     @Bean
-    fun upperCaseRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) = UpperCaseRule(properties.minUppercase, messageProvider)
+    fun upperCaseRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) =
+        MinUpperCaseRule(properties.minUppercase, messageProvider)
 
     @Bean
-    fun lowerCaseRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) = LowerCaseRule(properties.minLowercase, messageProvider)
+    fun lowerCaseRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) =
+        MinLowerCaseRule(properties.minLowercase, messageProvider)
 
     @Bean
-    fun digitRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) = DigitRule(properties.minDigits, messageProvider)
+    fun digitRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) =
+        MinDigitRule(properties.minDigits, messageProvider)
 
     @Bean
     fun specialCharsRule(properties: PasswordValidationProperties, messageProvider: MessageProvider) = 
