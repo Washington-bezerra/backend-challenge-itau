@@ -21,15 +21,15 @@
 - [X] Validar princípios SOLID
 - [X] Refatorações necessárias
 
-### Dia 25/12 - Aspectos Não-Funcionais
+### Dia 25/12 - Testes
+- [X] Criação de testes unitários
+- [X] Criação de testes de integração
+- [X] Configuração do JaCoCo para cobertura
+
+### Dia 26/12 - Aspectos Não-Funcionais
 - [ ] Avaliar necessidade de cache e documentar
 - [ ] Implementar aspectos de segurança
 - [ ] Documentar decisões de segurança
-
-### Dia 26/12 - Testes
-- [ ] Criação de testes unitários
-- [ ] Criação de testes de integração
-- [ ] Configuração do JaCoCo para cobertura
 
 ### Dia 27/12 - Revisão
 - [ ] Validar isolamento do domínio
