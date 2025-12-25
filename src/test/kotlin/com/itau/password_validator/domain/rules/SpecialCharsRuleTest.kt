@@ -14,7 +14,9 @@ class SpecialCharsRuleTest {
 
     @Test
     fun `should return violation when password has insufficient special characters`(){
-        every { messageProvider.getMessage("password.validation.special-char", 1, "!@#$%^&*()-+") } returns "Password must contain at least 1 special character: !@#$%^&*()-+"
+        every {
+            messageProvider.getMessage("password.validation.special-char", 1, "!@#$%^&*()-+")
+        } returns "Password must contain at least 1 special character: !@#$%^&*()-+"
         
         val rule = SpecialCharsRule("!@#$%^&*()-+", 1, messageProvider)
         val result = rule.validate("password")

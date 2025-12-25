@@ -14,7 +14,9 @@ class MinUpperCaseRuleTest {
 
     @Test
     fun `should return violation when password has insufficient uppercase letters`(){
-        every { messageProvider.getMessage("password.validation.uppercase", 1) } returns "Password must contain at least 1 uppercase letter"
+        every {
+            messageProvider.getMessage("password.validation.uppercase", 1)
+        } returns "Password must contain at least 1 uppercase letter"
         
         val rule = MinUpperCaseRule(1, messageProvider)
         val result = rule.validate("password")

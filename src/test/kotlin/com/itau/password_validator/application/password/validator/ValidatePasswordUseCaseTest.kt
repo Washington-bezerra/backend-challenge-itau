@@ -150,13 +150,27 @@ class ValidatePasswordUseCaseTest {
 
     @Test
     fun `should return all violations when password violates all rules`(){
-        every { messageProvider.getMessage("password.validation.min-length", 9) } returns "Password must have at least 9 characters"
-        every { messageProvider.getMessage("password.validation.uppercase", 1) } returns "Password must contain at least 1 uppercase letter"
-        every { messageProvider.getMessage("password.validation.lowercase", 1) } returns "Password must contain at least 1 lowercase letter"
-        every { messageProvider.getMessage("password.validation.digit", 1) } returns "Password must contain at least 1 digit"
-        every { messageProvider.getMessage("password.validation.special-char", 1, "!@#$%^&*()-+") } returns "Password must contain at least 1 special character: !@#$%^&*()-+"
-        every { messageProvider.getMessage("password.validation.no-spaces") } returns "Password must not contain blank spaces"
-        every { messageProvider.getMessage("password.validation.no-repeated") } returns "Password must not contain repeated characters"
+        every {
+            messageProvider.getMessage("password.validation.min-length", 9)
+        } returns "Password must have at least 9 characters"
+        every {
+            messageProvider.getMessage("password.validation.uppercase", 1)
+        } returns "Password must contain at least 1 uppercase letter"
+        every {
+            messageProvider.getMessage("password.validation.lowercase", 1)
+        } returns "Password must contain at least 1 lowercase letter"
+        every {
+            messageProvider.getMessage("password.validation.digit", 1)
+        } returns "Password must contain at least 1 digit"
+        every {
+            messageProvider.getMessage("password.validation.special-char", 1, "!@#$%^&*()-+")
+        } returns "Password must contain at least 1 special character: !@#$%^&*()-+"
+        every {
+            messageProvider.getMessage("password.validation.no-spaces")
+        } returns "Password must not contain blank spaces"
+        every {
+            messageProvider.getMessage("password.validation.no-repeated")
+        } returns "Password must not contain repeated characters"
 
         val result = useCase(", ,")
 

@@ -14,7 +14,9 @@ class NoRepeatedCharsRuleTest {
 
     @Test
     fun `should return violation when password has repeated characters`(){
-        every { messageProvider.getMessage("password.validation.no-repeated") } returns "Password must not contain repeated characters"
+        every {
+            messageProvider.getMessage("password.validation.no-repeated")
+        } returns "Password must not contain repeated characters"
         
         val rule = NoRepeatedCharsRule(messageProvider)
         val result = rule.validate("password")

@@ -14,7 +14,9 @@ class WhiteSpaceRuleTest {
 
     @Test
     fun `should return violation when password contain while space`(){
-        every { messageProvider.getMessage("password.validation.no-spaces") } returns "Password must not contain blank spaces"
+        every {
+            messageProvider.getMessage("password.validation.no-spaces")
+        } returns "Password must not contain blank spaces"
         
         val rule = WhiteSpaceRule(messageProvider)
         val result = rule.validate("pass word")

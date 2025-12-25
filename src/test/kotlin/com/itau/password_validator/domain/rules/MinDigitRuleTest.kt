@@ -14,7 +14,9 @@ class MinDigitRuleTest {
 
     @Test
     fun `should return violation when password has insufficient digits`(){
-        every { messageProvider.getMessage("password.validation.digit", 1) } returns "Password must contain at least 1 digit"
+        every {
+            messageProvider.getMessage("password.validation.digit", 1)
+        } returns "Password must contain at least 1 digit"
         
         val rule = MinDigitRule(1, messageProvider)
         val result = rule.validate("password")

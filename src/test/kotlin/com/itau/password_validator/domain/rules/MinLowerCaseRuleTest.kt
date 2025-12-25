@@ -14,7 +14,9 @@ class MinLowerCaseRuleTest {
 
     @Test
     fun `should return violation when password has insufficient lowercase letters`(){
-        every { messageProvider.getMessage("password.validation.lowercase", 1) } returns "Password must contain at least 1 lowercase letter"
+        every {
+            messageProvider.getMessage("password.validation.lowercase", 1)
+        } returns "Password must contain at least 1 lowercase letter"
         
         val rule = MinLowerCaseRule(1, messageProvider)
         val result = rule.validate("PASSWORD")
