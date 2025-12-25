@@ -1,6 +1,5 @@
-package com.itau.password_validator.domain
+package com.itau.password_validator.domain.rules
 
-import com.itau.password_validator.domain.rules.NoRepeatedCharsRule
 import com.itau.password_validator.domain.interfaces.MessageProvider
 import io.mockk.every
 import io.mockk.mockk
