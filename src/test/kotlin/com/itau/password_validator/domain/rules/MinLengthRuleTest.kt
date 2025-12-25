@@ -14,9 +14,9 @@ class MinLengthRuleTest {
 
     @Test
     fun `should return violation when password is too short`(){
-        every { messageProvider.getMessage("password.validation.min-length", 8) } returns "Password must have at least 8 characters"
+        every { messageProvider.getMessage("password.validation.min-length", 9) } returns "Password must have at least 8 characters"
         
-        val rule = MinLengthRule(8, messageProvider)
+        val rule = MinLengthRule(9, messageProvider)
         val result = rule.validate("pass")
         
         assertFalse(result.isValid)
@@ -26,7 +26,7 @@ class MinLengthRuleTest {
     @Test
     fun `should return no violation when password meets minimum length`(){
         val rule = MinLengthRule(8, messageProvider)
-        val result = rule.validate("password")
+        val result = rule.validate("passwords")
         
         assertTrue(result.isValid)
     }
