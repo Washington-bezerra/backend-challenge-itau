@@ -4,7 +4,7 @@ spring:
 
 password:
   validation:
-    min-length: 8
+    min-length: 9
     min-uppercase: 1
     min-lowercase: 1
     min-digits: 1

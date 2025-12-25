@@ -49,7 +49,7 @@ class PasswordValidationConfig {
 
 @ConfigurationProperties(prefix = "password.validation")
 data class PasswordValidationProperties(
-    val minLength: Int = 8,
+    val minLength: Int = 9,
     val minUppercase: Int = 1,
     val minLowercase: Int = 1,
     val minDigits: Int = 1,
