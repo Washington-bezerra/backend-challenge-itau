@@ -8,7 +8,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class WhileSpaceRuleTest {
+class WhiteSpaceRuleTest {
 
     private val messageProvider = mockk<MessageProvider>()
 
