@@ -8,7 +8,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class DigitRuleTest {
+class MinDigitRuleTest {
 
     private val messageProvider = mockk<MessageProvider>()
 
@@ -16,7 +16,7 @@ class DigitRuleTest {
     fun `should return violation when password has insufficient digits`(){
         every { messageProvider.getMessage("password.validation.digit", 1) } returns "Password must contain at least 1 digit"
         
-        val rule = DigitRule(1, messageProvider)
+        val rule = MinDigitRule(1, messageProvider)
         val result = rule.validate("password")
         
         assertFalse(result.isValid)
@@ -25,7 +25,7 @@ class DigitRuleTest {
     
     @Test
     fun `should return no violation when password has sufficient digits`(){
-        val rule = DigitRule(1, messageProvider)
+        val rule = MinDigitRule(1, messageProvider)
         val result = rule.validate("password1")
         
         assertTrue(result.isValid)

@@ -3,7 +3,7 @@ package com.itau.password_validator.domain.rules
 import com.itau.password_validator.domain.entities.PasswordValidate
 import com.itau.password_validator.domain.interfaces.MessageProvider
 
-class DigitRule(val minDigits: Int, val messageProvider: MessageProvider) : PasswordRule {
+class MinDigitRule(val minDigits: Int, val messageProvider: MessageProvider) : PasswordRule {
     override fun validate(password: String): PasswordValidate {
         var countDigits = 0
 

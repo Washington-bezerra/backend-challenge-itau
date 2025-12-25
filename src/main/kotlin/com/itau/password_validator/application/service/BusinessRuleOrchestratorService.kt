@@ -9,7 +9,7 @@ class BusinessRuleOrchestratorService(
     minLengthRule: MinLengthRule,
     upperCaseRule: UpperCaseRule,
     lowerCaseRule: LowerCaseRule,
-    digitRule: DigitRule,
+    minDigitRule: MinDigitRule,
     specialCharsRule: SpecialCharsRule,
     whiteSpaceRule: WhiteSpaceRule,
     noRepeatedCharsRule: NoRepeatedCharsRule
@@ -19,7 +19,7 @@ class BusinessRuleOrchestratorService(
         minLengthRule,
         upperCaseRule,
         lowerCaseRule,
-        digitRule,
+        minDigitRule,
         specialCharsRule,
         whiteSpaceRule,
         noRepeatedCharsRule
