@@ -1,4 +1,4 @@
-package com.itau.password_validator.infrastructure.config
+package com.itau.password_validator.infrastructure.configs
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.itau.password_validator.infrastructure.v1.password.responses.ValidatePasswordErrorResponse

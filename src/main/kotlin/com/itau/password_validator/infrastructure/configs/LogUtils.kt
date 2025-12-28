@@ -1,4 +1,4 @@
-package com.itau.password_validator.infrastructure.config
+package com.itau.password_validator.infrastructure.configs
 
 import org.slf4j.Logger
 import org.slf4j.MDC

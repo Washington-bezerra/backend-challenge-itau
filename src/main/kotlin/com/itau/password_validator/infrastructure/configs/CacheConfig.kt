@@ -1,4 +1,4 @@
-package com.itau.password_validator.infrastructure.config
+package com.itau.password_validator.infrastructure.configs
 
 import org.springframework.cache.CacheManager
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager

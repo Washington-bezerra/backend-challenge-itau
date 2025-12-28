@@ -1,8 +1,8 @@
 package com.itau.password_validator.infrastructure.v1.password.controllers
 
 import com.itau.password_validator.application.usecases.ValidatePasswordUseCase
-import com.itau.password_validator.infrastructure.config.LogUtils.logError
-import com.itau.password_validator.infrastructure.config.LogUtils.logStructured
+import com.itau.password_validator.infrastructure.configs.LogUtils.logError
+import com.itau.password_validator.infrastructure.configs.LogUtils.logStructured
 import com.itau.password_validator.infrastructure.v1.password.requests.ValidatePasswordRequest
 import com.itau.password_validator.infrastructure.v1.password.responses.ValidatePasswordResponse
 import org.slf4j.LoggerFactory

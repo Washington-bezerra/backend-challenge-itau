@@ -1,9 +1,9 @@
-package com.itau.password_validator.infrastructure.config
+package com.itau.password_validator.infrastructure.configs
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ObjectNode
-import com.itau.password_validator.infrastructure.config.LogUtils.logStructured
+import com.itau.password_validator.infrastructure.configs.LogUtils.logStructured
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse

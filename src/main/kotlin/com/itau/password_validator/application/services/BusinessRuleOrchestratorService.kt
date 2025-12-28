@@ -1,7 +1,7 @@
 package com.itau.password_validator.application.services
 
 import com.itau.password_validator.application.interfaces.IBusinessRuleOrchestratorService
-import com.itau.password_validator.infrastructure.config.LogUtils.logStructured
+import com.itau.password_validator.infrastructure.configs.LogUtils.logStructured
 import com.itau.password_validator.domain.rules.*
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service

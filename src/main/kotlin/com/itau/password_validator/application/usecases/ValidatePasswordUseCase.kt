@@ -1,7 +1,7 @@
 package com.itau.password_validator.application.usecases
 
 import com.itau.password_validator.application.interfaces.IBusinessRuleOrchestratorService
-import com.itau.password_validator.infrastructure.config.LogUtils.logStructured
+import com.itau.password_validator.infrastructure.configs.LogUtils.logStructured
 import org.slf4j.LoggerFactory
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service

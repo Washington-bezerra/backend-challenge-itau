@@ -1,4 +1,4 @@
-package com.itau.password_validator.infrastructure.config
+package com.itau.password_validator.infrastructure.configs
 
 import com.itau.password_validator.domain.interfaces.MessageProvider
 import com.itau.password_validator.domain.rules.*

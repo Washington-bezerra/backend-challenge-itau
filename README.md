@@ -117,14 +117,16 @@ src/
 ├── main/java/com/itau/challenge/
 │   ├── domain/
 │   │   ├── entities/
-│   │   ├── valueobjects/
-│   │   └── services/
+│   │   ├── interfaces/
+│   │   └── rules/
 │   ├── application/
 │   │   ├── usecases/
 │   │   ├── interfaces/
-│   │   └── dtos/
+│   │   └── services/
 │   ├── infrastructure/
-│   │   └── web/
+│   │   └── adapters/
+│   │   └── configs/
+│   │   └── v1/password
 │   └── PasswordValidatorApplication.java
 └── test/
 ```
