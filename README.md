@@ -32,16 +32,16 @@
 - [X] Documentar decisões de segurança
 
 ### Dia 27/12 - Revisão
-- [ ] Validar isolamento do domínio
-- [ ] Documentar como executar o código
-- [ ] Disponibilizar exemplos de cURL
-- [ ] Checklist final do projeto
+- [X] Validar isolamento do domínio
+- [X] Documentar como executar o código
+- [X] Disponibilizar exemplos de cURL
+- [X] Checklist final do projeto
 
 ### Dia 28/12 - Finalização
 - [ ] Criação de log simples ou estruturados, a depender da prazo
-- [ ] Se possível, criar swagger
-- [ ] Avisar a Tainara Ramim que o projeto foi finalizado
-- [ ] Propor adiantamento da apresentação, se a agenda permitir
+- [X] Se possível, criar swagger
+- [X] Avisar a Tainara Ramim que o projeto foi finalizado
+- [X] Propor adiantamento da apresentação, se a agenda permitir
 
 ## ❓ Motivos
 <details>
@@ -96,6 +96,20 @@ não sejam chamadas em cadeia - com uma rule chamando outra - é possível se in
 
 </details>
 
+### Como executar
+1. Execute o projeto na sua IDE de preferência 
+2. Faça uma request como no exemplo abaixo:
+```
+curl --location 'localhost:8080/api/v1/password/validate' \
+--header 'x-api-key: itau-challenge' \
+--header 'Content-Type: application/json' \
+--data '{
+    "password": "1Pasword!"
+}'
+```
+
+Em caso de dúvida, consulte a [doc](http://localhost:8080/swagger-ui/index.html)
+
 ### Estrutura do Projeto
 
 ```
@@ -127,5 +141,6 @@ Check List/Débitos (apagar)
 - [X] Parametrizar a quantidade minima de maiusculo, minusculo, char especial e digito, assim fica dinamico.
 - [X] Ajusta exception retornada por notNull notBlank
 - [X] Explicar o uso do gradle
+- [ ] Remover warnings
 ---
 *Projeto em desenvolvimento - Atualizações diárias conforme cronograma*

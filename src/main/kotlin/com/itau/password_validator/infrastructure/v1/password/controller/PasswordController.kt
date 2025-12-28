@@ -1,8 +1,11 @@
 package com.itau.password_validator.infrastructure.v1.password.controller
 
 import com.itau.password_validator.application.usecases.password.validate.ValidatePasswordUseCase
+import com.itau.password_validator.infrastructure.config.LogUtils.logError
+import com.itau.password_validator.infrastructure.config.LogUtils.logStructured
 import com.itau.password_validator.infrastructure.v1.password.request.ValidatePasswordRequest
 import com.itau.password_validator.infrastructure.v1.password.response.ValidatePasswordResponse
+import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -17,19 +20,28 @@ class PasswordController (
     val validatePasswordUseCase: ValidatePasswordUseCase
 ): IPasswordController {
 
+    private val logger = LoggerFactory.getLogger(PasswordController::class.java)
+
     @PostMapping("/validate")
     override fun validate(
         @RequestHeader("X-API-Key", required = true) apiKey: String,
         @Valid @RequestBody request: ValidatePasswordRequest
     ): ResponseEntity<ValidatePasswordResponse> {
+        try {
+            val result = validatePasswordUseCase(request.password!!)
+            
+            logger.logStructured("Password validation completed", "REQUEST_COMPLETED",
+                "isValid" to result.isValid, "violationsCount" to result.violations.size)
 
-        val result = validatePasswordUseCase(request.password!!)
-
-        return ResponseEntity.ok().body(
-            ValidatePasswordResponse(
-                isValid = result.isValid,
-                violations = result.violations
+            return ResponseEntity.ok().body(
+                ValidatePasswordResponse(
+                    isValid = result.isValid,
+                    violations = result.violations
+                )
             )
-        )
+        } catch (e: Exception) {
+            logger.logError("Error during password validation", e)
+            throw e
+        }
     }
 }
