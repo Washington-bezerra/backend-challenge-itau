@@ -1,5 +1,7 @@
 package com.itau.password_validator.infrastructure.config
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.itau.password_validator.infrastructure.v1.password.response.ValidatePasswordErrorResponse
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
@@ -33,9 +35,16 @@ class ApiKeyConfig(
             val requestApiKey = request.getHeader("X-API-Key")
 
             if (requestApiKey == null || requestApiKey != validApiKey) {
-                response.status = HttpStatus.UNAUTHORIZED.value()
+                response.status = HttpStatus.BAD_REQUEST.value()
                 response.contentType = "application/json"
-                response.writer.write("""{"error": "Invalid or missing X-API-Key header"}""")
+                
+                val errorResponse = ValidatePasswordErrorResponse(
+                    code = 401,
+                    message = "Missing or invalid X-API-Key header"
+                )
+                
+                val objectMapper = ObjectMapper()
+                response.writer.write(objectMapper.writeValueAsString(errorResponse))
                 return
             }
 

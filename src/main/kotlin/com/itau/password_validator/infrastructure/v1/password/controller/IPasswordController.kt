@@ -9,12 +9,15 @@ import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import io.swagger.v3.oas.annotations.tags.Tag
+import io.swagger.v3.oas.annotations.security.SecurityRequirement
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestHeader
 import jakarta.validation.Valid
 
 @Tag(name = "Password", description = "API para validação de senha")
+@SecurityRequirement(name = "X-API-Key")
 interface IPasswordController {
 
     @Operation(summary = "Valida uma senha")
@@ -31,6 +34,11 @@ interface IPasswordController {
                 content = [Content(schema = Schema(implementation = ValidatePasswordErrorResponse::class))]
             ),
             ApiResponse(
+                responseCode = "401",
+                description = "Invalid or missing header",
+                content = [Content(schema = Schema(implementation = ValidatePasswordErrorResponse::class))]
+            ),
+            ApiResponse(
                 responseCode = "500",
                 description = "Internal Server Error",
                 content = [Content(schema = Schema(implementation = ValidatePasswordErrorResponse::class))]
@@ -39,6 +47,7 @@ interface IPasswordController {
     )
     @PostMapping("/validate")
     fun validate(
+        @RequestHeader("X-API-Key", required = true) apiKey: String,
         @Valid @RequestBody(required = true) request: ValidatePasswordRequest
-    ) : ResponseEntity<*>
+    ) : ResponseEntity<ValidatePasswordResponse>
 }
