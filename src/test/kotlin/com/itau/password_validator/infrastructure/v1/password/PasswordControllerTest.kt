@@ -77,6 +77,6 @@ class PasswordControllerTest(
                 .content(objectMapper.writeValueAsString(request))
         )
             .andExpect(status().isUnauthorized)
-            .andExpect(jsonPath("$.error").value("Invalid or missing X-API-Key header"))
+            .andExpect(jsonPath("$.message").value("Missing or invalid X-API-Key header"))
     }
 }
