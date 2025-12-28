@@ -28,6 +28,7 @@ class PasswordControllerTest(
 
         mockMvc.perform(
             post("/api/v1/password/validate")
+                .header("X-API-Key", "itau-challenge")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request))
         )
@@ -42,6 +43,7 @@ class PasswordControllerTest(
 
         mockMvc.perform(
             post("/api/v1/password/validate")
+                .header("X-API-Key", "itau-challenge")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request))
         )
@@ -56,6 +58,7 @@ class PasswordControllerTest(
 
         mockMvc.perform(
             post("/api/v1/password/validate")
+                .header("X-API-Key", "itau-challenge")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request))
         )
@@ -64,5 +67,16 @@ class PasswordControllerTest(
             .andExpect(jsonPath("$.message").value("Password must be not blank"))
     }
 
+    @Test
+    fun `should return unauthorized when x-api-key is missing`() {
+        val request = ValidatePasswordRequest(null)
 
+        mockMvc.perform(
+            post("/api/v1/password/validate")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(request))
+        )
+            .andExpect(status().isUnauthorized)
+            .andExpect(jsonPath("$.error").value("Invalid or missing X-API-Key header"))
+    }
 }
