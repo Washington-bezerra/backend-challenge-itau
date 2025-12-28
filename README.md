@@ -28,8 +28,8 @@
 
 ### Dia 26/12 - Aspectos Não-Funcionais
 - [X] Avaliar necessidade de cache e documentar
-- [ ] Implementar aspectos de segurança
-- [ ] Documentar decisões de segurança
+- [X] Implementar aspectos de segurança
+- [X] Documentar decisões de segurança
 
 ### Dia 27/12 - Revisão
 - [ ] Validar isolamento do domínio
@@ -83,6 +83,16 @@ não sejam chamadas em cadeia - com uma rule chamando outra - é possível se in
 - Economia de recurso
 - Melhoria de performance
 - Não foi usado o caffeine porque é um cache simple, sem TTL por exemplo.
+
+</details>
+
+<details>
+  <summary>Por que X-API-Key?</summary>
+
+- Autenticação simples e adequada para APIs internas
+- Não requer gerenciamento de sessões ou tokens complexos
+- Fácil de implementar e testar
+- Usar o spring security seria um overengineering
 
 </details>
 
