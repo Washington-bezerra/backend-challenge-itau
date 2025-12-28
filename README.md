@@ -27,7 +27,7 @@
 - [X] Configuração do JaCoCo para cobertura
 
 ### Dia 26/12 - Aspectos Não-Funcionais
-- [ ] Avaliar necessidade de cache e documentar
+- [X] Avaliar necessidade de cache e documentar
 - [ ] Implementar aspectos de segurança
 - [ ] Documentar decisões de segurança
 
