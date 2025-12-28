@@ -35,7 +35,7 @@ class ApiKeyConfig(
             val requestApiKey = request.getHeader("X-API-Key")
 
             if (requestApiKey == null || requestApiKey != validApiKey) {
-                response.status = HttpStatus.BAD_REQUEST.value()
+                response.status = HttpStatus.UNAUTHORIZED.value()
                 response.contentType = "application/json"
                 
                 val errorResponse = ValidatePasswordErrorResponse(
