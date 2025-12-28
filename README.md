@@ -77,6 +77,15 @@ não sejam chamadas em cadeia - com uma rule chamando outra - é possível se in
 
 </details>
 
+<details>
+  <summary>Por que usar cache?</summary>
+
+- Economia de recurso
+- Melhoria de performance
+- Não foi usado o caffeine porque é um cache simple, sem TTL por exemplo.
+
+</details>
+
 ### Estrutura do Projeto
 
 ```
