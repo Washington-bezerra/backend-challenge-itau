@@ -1,4 +1,4 @@
-package com.itau.password_validator.infrastructure.v1.password.response
+package com.itau.password_validator.infrastructure.v1.password.responses
 
 data class ValidatePasswordErrorResponse (
     val code: Int,

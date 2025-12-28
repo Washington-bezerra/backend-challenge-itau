@@ -1,4 +1,4 @@
-package com.itau.password_validator.application.service
+package com.itau.password_validator.application.services
 
 import com.itau.password_validator.application.interfaces.IBusinessRuleOrchestratorService
 import com.itau.password_validator.infrastructure.config.LogUtils.logStructured

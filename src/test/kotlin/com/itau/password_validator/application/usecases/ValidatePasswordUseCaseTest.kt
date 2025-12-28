@@ -1,6 +1,5 @@
-package com.itau.password_validator.application.password.validator
+package com.itau.password_validator.application.usecases
 
-import com.itau.password_validator.application.usecases.password.validate.ValidatePasswordUseCase
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest

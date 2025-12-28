@@ -1,7 +1,7 @@
 package com.itau.password_validator.infrastructure.v1.password
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.itau.password_validator.infrastructure.v1.password.request.ValidatePasswordRequest
+import com.itau.password_validator.infrastructure.v1.password.requests.ValidatePasswordRequest
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc

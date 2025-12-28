@@ -1,4 +1,4 @@
-package com.itau.password_validator.infrastructure.v1.password.request
+package com.itau.password_validator.infrastructure.v1.password.requests
 
 import jakarta.validation.constraints.NotBlank
 

@@ -1,8 +1,8 @@
-package com.itau.password_validator.infrastructure.v1.password.controller
+package com.itau.password_validator.infrastructure.v1.password.controllers
 
-import com.itau.password_validator.infrastructure.v1.password.request.ValidatePasswordRequest
-import com.itau.password_validator.infrastructure.v1.password.response.ValidatePasswordErrorResponse
-import com.itau.password_validator.infrastructure.v1.password.response.ValidatePasswordResponse
+import com.itau.password_validator.infrastructure.v1.password.requests.ValidatePasswordRequest
+import com.itau.password_validator.infrastructure.v1.password.responses.ValidatePasswordErrorResponse
+import com.itau.password_validator.infrastructure.v1.password.responses.ValidatePasswordResponse
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.Schema

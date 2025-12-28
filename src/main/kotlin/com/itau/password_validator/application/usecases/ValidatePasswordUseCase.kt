@@ -1,4 +1,4 @@
-package com.itau.password_validator.application.usecases.password.validate
+package com.itau.password_validator.application.usecases
 
 import com.itau.password_validator.application.interfaces.IBusinessRuleOrchestratorService
 import com.itau.password_validator.infrastructure.config.LogUtils.logStructured

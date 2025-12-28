@@ -1,4 +1,4 @@
-package com.itau.password_validator.application.usecases.password.validate
+package com.itau.password_validator.application.usecases
 
 data class PasswordValidateDTO(
     val isValid: Boolean,

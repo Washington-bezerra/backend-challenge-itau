@@ -1,4 +1,4 @@
-package com.itau.password_validator.application.service
+package com.itau.password_validator.application.services
 
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

@@ -1,7 +1,7 @@
 package com.itau.password_validator.infrastructure
 
 import com.itau.password_validator.infrastructure.config.LogUtils.logError
-import com.itau.password_validator.infrastructure.v1.password.response.ValidatePasswordErrorResponse
+import com.itau.password_validator.infrastructure.v1.password.responses.ValidatePasswordErrorResponse
 
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity

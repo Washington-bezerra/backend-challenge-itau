@@ -1,7 +1,7 @@
 package com.itau.password_validator.infrastructure.config
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.itau.password_validator.infrastructure.v1.password.response.ValidatePasswordErrorResponse
+import com.itau.password_validator.infrastructure.v1.password.responses.ValidatePasswordErrorResponse
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
