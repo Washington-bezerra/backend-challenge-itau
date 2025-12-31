@@ -65,6 +65,16 @@ tasks.jacocoTestReport {
 		html.required.set(true)
 		csv.required.set(false)
 	}
+	executionData.setFrom(fileTree(layout.buildDirectory.dir("jacoco")).include("**/*.exec"))
+	classDirectories.setFrom(
+		files(classDirectories.files.map {
+			fileTree(it) {
+				exclude("**/configs/**")
+				exclude("**/GlobalExceptionHandler*")
+				exclude("**/GlobalExceptionHandler")
+			}
+		})
+	)
 }
 
 jacoco {
