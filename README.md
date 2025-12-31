@@ -38,7 +38,7 @@
 - [X] Checklist final do projeto
 
 ### Dia 28/12 - Finalização
-- [ ] Criação de log simples ou estruturados, a depender da prazo
+- [X] Criação de log simples ou estruturados, a depender da prazo
 - [X] Se possível, criar swagger
 - [X] Avisar a Tainara Ramim que o projeto foi finalizado
 - [X] Propor adiantamento da apresentação, se a agenda permitir
@@ -107,6 +107,7 @@ curl --location 'localhost:8080/api/v1/password/validate' \
     "password": "1Pasword!"
 }'
 ```
+Para criar o report: `./gradlew clean test jacocoTestReport` 
 
 Em caso de dúvida, consulte a [doc](http://localhost:8080/swagger-ui/index.html)
 
@@ -139,10 +140,10 @@ src/
 
 ---
 Check List/Débitos (apagar)
-- [ ] Revisar no README a parte de `Estrutura do Projeto`
+- [X] Revisar no README a parte de `Estrutura do Projeto`
 - [X] Parametrizar a quantidade minima de maiusculo, minusculo, char especial e digito, assim fica dinamico.
 - [X] Ajusta exception retornada por notNull notBlank
 - [X] Explicar o uso do gradle
-- [ ] Remover warnings
+- [X] Remover warnings
 ---
 *Projeto em desenvolvimento - Atualizações diárias conforme cronograma*
